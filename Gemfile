@@ -45,4 +45,6 @@ end
 
 gem 'devise'
 gem 'carrierwave', github: "carrierwaveuploader/carrierwave"
+gem 'resque'
+gem 'resque-scheduler'
 

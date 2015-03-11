@@ -43,6 +43,8 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+		PythonJob.perform_later("python job test")
+
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
