@@ -4,8 +4,8 @@ def root():
 def images():
     return root() + '/public/uploads/order/images/'
 
-def images_origin_dir_name():
-    return '/origin/'
+def images_original_dir_name():
+    return '/original/'
 
 def images_tmp_dir_name():
     return '/modified/'

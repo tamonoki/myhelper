@@ -10,5 +10,12 @@
   <%= @order.images %>
 </p>
 
+<p>
+  <strong>Images.file:</strong>
+  <%= @order.images[0] %>
+  <p><%= image_path_from_dir(@order.images[0], 'modified') %></p>
+  <%= image_tag(image_path_from_dir(@order.images[0], 'modified')) %>
+</p>
+
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

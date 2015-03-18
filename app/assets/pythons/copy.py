@@ -25,23 +25,24 @@ if len(argvs) < 2:
 
 order_id = argvs[1]
 
-path_src = Rails.images() + order_id + Rails.images_origin_dir_name()
+path_src = Rails.images() + order_id + Rails.images_original_dir_name()
 path_dst = Rails.images() + order_id + Rails.images_tmp_dir_name()
 #path_dir = Rails.root() + '/app/assets/pythons/TMPdir'
 
-logging.info('copy src path= ' + path_src)
+logging.info('copy src path= ' + path_src + ', exist?: ' + str(os.path.exists(path_src)))
 logging.info('copy dst path= ' + path_dst)
 if os.path.exists(path_src):
     print( 'path_src is exist')
     if not os.path.exists(path_dst):
+        print("make dir: " + path_dst)
         os.makedirs(path_dst)
 
     # get file list
-    files_origin = glob.glob(path_src + '/*')
+    files_original = glob.glob(path_src + '/*')
 
     # do cppy
-    for file_origin in files_origin:
-       shutil.copy(file_origin, path_dst)
+    for file_original in files_original:
+       shutil.copy(file_original, path_dst)
     
 
 #os.makedirs()
