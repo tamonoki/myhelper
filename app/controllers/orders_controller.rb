@@ -39,11 +39,15 @@ class OrdersController < ApplicationController
     logger.debug(@order.images[0].url)
     logger.debug(@order.images[0].current_path)
     logger.debug(@order.images[0].identifier)
+    logger.debug(@order.user_id)
     logger.debug('end')
 
     respond_to do |format|
+      #c = @order.save
       if @order.save
-		PythonJob.perform_later("python job test")
+		logger.debug(@order.id)
+		logger.debug('in save end')
+		PythonJob.perform_later(@order.id)
 
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
