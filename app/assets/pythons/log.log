@@ -1,11 +1,9 @@
-2015-03-18 05:00:51,383 INFO start python job (copy.py)
-2015-03-18 05:00:51,903 INFO start python job (copy.py)
-2015-03-18 05:02:07,053 INFO start python job (copy.py)
-2015-03-18 05:02:07,125 INFO copy src path= /vagrant/Rails/myhelper//public/uploads/order/images/25/origin/, exist?: False
-2015-03-18 05:02:07,125 INFO copy dst path= /vagrant/Rails/myhelper//public/uploads/order/images/25/modified/
-2015-03-18 05:02:30,639 INFO start python job (copy.py)
-2015-03-18 05:02:30,691 INFO copy src path= /vagrant/Rails/myhelper//public/uploads/order/images/25/origin/, exist?: False
-2015-03-18 05:02:30,691 INFO copy dst path= /vagrant/Rails/myhelper//public/uploads/order/images/25/modified/
-2015-03-18 05:06:00,374 INFO start python job (copy.py)
-2015-03-18 05:06:00,426 INFO copy src path= /vagrant/Rails/myhelper//public/uploads/order/images/25/original/, exist?: True
-2015-03-18 05:06:00,426 INFO copy dst path= /vagrant/Rails/myhelper//public/uploads/order/images/25/modified/
+2015-03-19 06:12:06,021 INFO start python job (copy.py)
+2015-03-19 06:12:11,999 INFO copy src path= /vagrant/Rails/myhelper//public/uploads/order/images/order_id/original/, exist?: False
+2015-03-19 06:12:12,001 INFO copy dst path= /vagrant/Rails/myhelper//public/uploads/order/images/order_id/modified/
+2015-03-19 06:17:34,410 INFO start python job (copy.py)
+2015-03-19 06:17:37,259 INFO copy src path= /vagrant/Rails/myhelper//public/uploads/order/images/order_id/original/, exist?: False
+2015-03-19 06:17:37,261 INFO copy dst path= /vagrant/Rails/myhelper//public/uploads/order/images/order_id/modified/
+2015-03-19 06:24:07,101 INFO start python job (copy.py)
+2015-03-19 06:24:08,908 INFO copy src path= /vagrant/Rails/myhelper//public/uploads/order/images/52/original/, exist?: True
+2015-03-19 06:24:08,926 INFO copy dst path= /vagrant/Rails/myhelper//public/uploads/order/images/52/modified/
