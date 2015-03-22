@@ -11,9 +11,29 @@
 </p>
 
 <p>
+	<strong>List</strong>
+	: num(<%= @order.images.length %>)
+	<% @order.images.each do |image| %>
+		<ul>
+			<li>
+				<%= check_box_tag 'selectfiles[]', image.file.identifier %>
+				<%= image.file.identifier %>
+			</li>
+			<li><%= image.url %></li>
+			<li><%= image.identifier %></li>
+			<li><%= image.size %></li>
+			<li><%= image.length %></li>
+			<li><%= image.current_path %></li>
+			<li><%= image.class %></li>
+			<li><%= image.methods %></li>
+		</ul>
+	<% end %>
+</p>
+
+<p>
   <strong>Images.file:</strong>
   <%= @order.images[0] %>
-  <p><%= image_path_from_dir(@order.images[0], 'modified') %></p>
+  <p><%= image_path_from_dir(@order.images[0].url, 'modified') %></p>
   <%= image_tag(image_path_from_dir(@order.images[0], 'modified')) %>
 </p>
 
