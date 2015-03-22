@@ -10,6 +10,7 @@
   <%= @order.images %>
 </p>
 
+<%= form_tag("/orders/#{@order.id}/list", :method => :put) do %>
 <p>
 	<strong>List</strong>
 	: num(<%= @order.images.length %>)
@@ -19,23 +20,22 @@
 				<%= check_box_tag 'selectfiles[]', image.file.identifier %>
 				<%= image.file.identifier %>
 			</li>
-			<li><%= image.url %></li>
-			<li><%= image.identifier %></li>
-			<li><%= image.size %></li>
-			<li><%= image.length %></li>
 			<li><%= image.current_path %></li>
-			<li><%= image.class %></li>
-			<li><%= image.methods %></li>
+			<li><%= image.url %></li>
+			<li><%= image_path_of(image, 'modified') %></li>
+			<li><%= image_tag(image_path_of(image, 'modified')) %></li>
+			<% if false %>
+				<li><%= image.size %></li>
+				<li><%= image.length %></li>
+				<li><%= image.identifier %></li>
+				<li><%= image.class %></li>
+				<li><%= image.methods %></li>
+			<% end %>
 		</ul>
 	<% end %>
 </p>
-
-<p>
-  <strong>Images.file:</strong>
-  <%= @order.images[0] %>
-  <p><%= image_path_from_dir(@order.images[0].url, 'modified') %></p>
-  <%= image_tag(image_path_from_dir(@order.images[0], 'modified')) %>
-</p>
+<%= submit_tag "Save" %>
+<% end %>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

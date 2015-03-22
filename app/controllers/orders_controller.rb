@@ -72,6 +72,11 @@ class OrdersController < ApplicationController
       end
     end
   end
+  
+  # PUT /ordedrs/1/list
+  def listupdate
+  	render :text => "ListUpdate id=#{params[:id]} checkedFile num=#{params[:selectfiles].length}"
+  end
 
   # DELETE /orders/1
   # DELETE /orders/1.json

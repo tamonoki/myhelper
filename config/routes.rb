@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :orders
+  put 'orders/:id/list' => 'orders#listupdate'
 
   devise_for :users
 

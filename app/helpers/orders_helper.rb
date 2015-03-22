@@ -1,8 +1,5 @@
 module OrdersHelper
-	def image_path_from_dir(src, dir_name)
-		res = File.dirname(src.to_s)
-		res = File.dirname(res)
-		res += '/' + dir_name + '/' + File.basename(src.to_s)
-		return res
+	def image_path_of(src, dir_name)
+		File.dirname(File.dirname(src.url)) + "/" + dir_name + "/" + File.basename(src.url)
 	end
 end
