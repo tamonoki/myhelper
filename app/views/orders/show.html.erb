@@ -17,9 +17,10 @@
 	<% @order.images.each do |image| %>
 		<ul>
 			<li>
-				<%= check_box_tag 'selectfiles[]', image.file.identifier %>
+				<%= check_box_tag 'selectfiles[]', image.file.identifier, ((@order.selectfiles != nil) ? @order.selectfiles.include?("#{image.file.identifier}") : false) %>
 				<%= image.file.identifier %>
 			</li>
+			<li><%=  (@order.selectfiles != nil) ? @order.selectfiles.include?("#{image.file.identifier}") : false %></li>
 			<li><%= image.current_path %></li>
 			<li><%= image.url %></li>
 			<li><%= image_path_of(image, 'modified') %></li>

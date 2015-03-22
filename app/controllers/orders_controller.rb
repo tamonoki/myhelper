@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :listupdate]
 
   # GET /orders
   # GET /orders.json
@@ -75,7 +75,12 @@ class OrdersController < ApplicationController
   
   # PUT /ordedrs/1/list
   def listupdate
-  	render :text => "ListUpdate id=#{params[:id]} checkedFile num=#{params[:selectfiles].length}"
+  	if @order.update( :selectfiles => params[:selectfiles] )
+  		render :text => "ListUpdate id=#{params[:id]} checkedFile num=#{params[:selectfiles].length}
+  		                 o=#{@order.selectfiles.length}"
+  	else
+  		render :text => "update miss"
+  	end
   end
 
   # DELETE /orders/1
