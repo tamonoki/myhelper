@@ -10,3 +10,6 @@ def images_original_dir_name():
 def images_tmp_dir_name():
     return '/modified/'
 
+def images_final_dir_name():
+    return '/final/'
+

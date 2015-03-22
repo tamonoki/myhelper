@@ -29,6 +29,7 @@ order_id = argvs[1]
 path_src = Rails.images() + order_id + Rails.images_original_dir_name()
 path_dst = Rails.images() + order_id + Rails.images_tmp_dir_name()
 #path_dir = Rails.root() + '/app/assets/pythons/TMPdir'
+path_final = Rails.images() + order_id + Rails.images_final_dir_name()
 
 logging.info('copy src path= ' + path_src + ', exist?: ' + str(os.path.exists(path_src)))
 logging.info('copy dst path= ' + path_dst)
@@ -38,6 +39,10 @@ if os.path.exists(path_src):
         print("make dir: " + path_dst)
         os.makedirs(path_dst)
 
+    if not os.path.exists(path_final):
+        print("make dir: " + path_final)
+        os.makedirs(path_final)
+
     # get file list
     files_original = glob.glob(path_src + '/*')
 
@@ -45,8 +50,12 @@ if os.path.exists(path_src):
     for file_original in files_original:
         im = cv2.imread(file_original)
         im_res = cv2.resize(im, (128,128))
+        
         file_modified = path_dst + os.path.basename(file_original)
+        file_final = path_final + os.path.basename(file_original)
+        
         cv2.imwrite(file_modified, im_res)
+        cv2.imwrite(file_final, im_res)
         #shutil.copy(file_original, path_dst)
     
 
