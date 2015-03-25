@@ -42,4 +42,12 @@ Rails.application.configure do
   # by tamonoki
   # for Devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+		  :address => 'smtp.yahoo.co.jp',
+		  :port => 587,
+		  :authentication => :login,
+		  :user_name => 'j_fun2014@yahoo.co.jp',
+		  :password => '***'
+	}
 end

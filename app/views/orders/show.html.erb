@@ -23,8 +23,12 @@
 			<li><%=  (@order.selectfiles != nil) ? @order.selectfiles.include?("#{image.file.identifier}") : false %></li>
 			<li><%= image.current_path %></li>
 			<li><%= image.url %></li>
-			<li><%= image_path_of(image, 'modified') %></li>
-			<li><%= image_tag(image_path_of(image, 'modified')) %></li>
+			<li><%= image_path_of(image.current_path, 'modified') %></li>
+			<% if File.exist?(image_path_of(image.current_path, 'modified')) %>
+				<li><%= image_tag(image_path_of(image.url, 'modified')) %></li>
+			<% else %>
+				<li>Now file Creating ...</li>
+			<% end %>
 			<% if false %>
 				<li><%= image.size %></li>
 				<li><%= image.length %></li>
