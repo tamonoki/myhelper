@@ -76,8 +76,12 @@ class OrdersController < ApplicationController
   # PUT /ordedrs/1/list
   def listupdate
   	if @order.update( :selectfiles => params[:selectfiles] )
-  		render :text => "ListUpdate id=#{params[:id]} checkedFile num=#{params[:selectfiles].length}
-  		                 o=#{@order.selectfiles.length}"
+  		if params[:commit] == "Save"
+  			render :text => "ListUpdate id=#{params[:id]} checkedFile num=#{params[:selectfiles].length}
+  		  	               o=#{@order.selectfiles.length}, commit=#{params[:commit]}"
+  		else
+  			redirect_to @order.paypal_url(registration_path(@order))
+  		end
   	else
   		render :text => "update miss"
   	end

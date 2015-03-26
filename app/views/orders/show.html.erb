@@ -10,6 +10,25 @@
   <%= @order.images %>
 </p>
 
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="tamono_kimi-facilitator-1@yahoo.co.jp">
+<input type="hidden" name="currency_code" value="JPY">
+<input type="hidden" name="item_name" value="images">
+<input type="hidden" name="amount" value="12.00">
+<input type="image" src="http://www.paypal.com/ja_JP/i/btn/x-click-but01.gif" border="0" name="submit" alt="PayPal">
+</form>
+no need PayPal account
+
+<% if false %>
+	<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+	<input type="hidden" name="cmd" value="_s-xclick">
+	<input type="hidden" name="hosted_button_id" value="KFF93FU28SFTY">
+	<input type="image" src="https://www.sandbox.paypal.com/ja_JP/JP/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal">
+	<img alt="" border="0" src="https://www.sandbox.paypal.com/ja_JP/i/scr/pixel.gif" width="1" height="1">
+	</form>
+<% end %>
+
 <%= form_tag("/orders/#{@order.id}/list", :method => :put) do %>
 <p>
 	<strong>List</strong>
@@ -40,6 +59,19 @@
 	<% end %>
 </p>
 <%= submit_tag "Save" %>
+<%= submit_tag "Checkout" %>
+<img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" align="left" style="margin-right:7px;">
+<% end %>
+
+<% if false %>
+	<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+	<input type="hidden" name="cmd" value="_s-xclick">
+	<input type="hidden" name="hosted_button_id" value="Y7CEP3VG6UE5E">
+	<input type="hidden" name="amount" value="10.00">
+	<input type="hidden" name="currency_code" value="JPY">
+	<input type="image" src="https://www.sandbox.paypal.com/ja_JP/JP/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal">
+	<img alt="" border="0" src="https://www.sandbox.paypal.com/ja_JP/i/scr/pixel.gif" width="1" height="1">
+	</form>
 <% end %>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
